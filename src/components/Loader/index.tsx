@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import anime from 'animejs';
-import { LoaderIcon } from 'shered/Icons';
+import { LoaderIcon } from 'shared/Icons';
 import { StyledLoader } from './style';
 
 const Loader = ({ finishLoading }: any) => {

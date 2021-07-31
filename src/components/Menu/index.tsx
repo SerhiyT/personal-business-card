@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavItem, NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import { IconLogo } from 'shered/Icons';
+import { IconLogo } from 'shared/Icons';
 import { StyledHeader, StyledNav, StyledLinks } from './style';
 
 const Menu = () => (

@@ -1,7 +1,7 @@
 import React from 'react';
-import { Icon } from 'shered/Icons';
-import { ID } from 'shered/utils/common';
-import { socialMedia } from 'shered/utils/configs';
+import { Icon } from 'shared/Icons';
+import { ID } from 'shared/utils/common';
+import { socialMedia } from 'shared/utils/configs';
 import { StyledSocialList, StyledSideSocial } from './style';
 
 const Social = () => {
