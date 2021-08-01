@@ -41,6 +41,7 @@ export const StyledSocialList = styled.ul`
       &:focus {
         svg {
           color: ${({ theme }) => theme.colors.blue};
+          fill: rgba(248, 112, 0, 0.2);
         }
       }
     }

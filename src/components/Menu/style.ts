@@ -1,6 +1,12 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const StyledHeader = styled.header`
+export const StyledHeader = styled.header<{
+  scrollDirection: {
+    isDown: boolean;
+    isUp: boolean;
+  };
+  scrolledToTop: boolean;
+}>`
   height: 100px;
   display: flex;
   justify-content: space-between;
@@ -23,6 +29,26 @@ export const StyledHeader = styled.header`
   }
   @media (max-width: 768px) {
     padding: 0 25px;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    ${(props) =>
+      props.scrollDirection.isUp &&
+      !props.scrolledToTop &&
+      css`
+        height: 80px;
+        transform: translateY(calc(100 * -1));
+        box-shadow: 0 10px 30px -10px rgba(2, 12, 27, 0.7);
+      `};
+
+    ${(props) =>
+      props.scrollDirection.isDown &&
+      !props.scrolledToTop &&
+      css`
+        height: 80px;
+        transform: translateY(0px);
+        box-shadow: 0 10px 30px -10px rgba(2, 12, 27, 0.7);
+      `};
   }
 `;
 
@@ -84,13 +110,15 @@ export const StyledLinks = styled.div`
       position: relative;
       font-size: 15px;
       color: ${({ theme }) => theme.colors.orange};
-      top: 0;
-      transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
-      :hover {
-        top: -5px;
-      }
       a {
         padding: 10px;
+      }
+      .active a {
+        border-bottom: 2px solid ${({ theme }) => theme.colors.orange};
+        content: '';
+        bottom: 0;
+        left: 0;
+        width: 100%;
       }
     }
   }

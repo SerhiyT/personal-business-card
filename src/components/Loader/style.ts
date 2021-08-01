@@ -27,8 +27,15 @@ export const StyledLoader = styled.div<{
       margin: 0 auto;
       fill: none;
       user-select: none;
-      #B {
+      #logoSecond {
         opacity: 0;
+      }
+    }
+    &:hover,
+    &:focus {
+      svg {
+        color: ${({ theme }) => theme.colors.blue};
+        fill: rgba(248, 112, 0, 0.2);
       }
     }
   }

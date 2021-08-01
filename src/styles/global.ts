@@ -62,11 +62,6 @@ const GlobalStyle = createGlobalStyle<Props>`
     position: relative;
     transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 
-    &:hover,
-    &:focus {
-      color: ${({ theme }) => theme?.colors?.white};
-    }
-
     &.inline-link {
       ${({ theme }) => theme?.mixins?.inlineLink};
     }
