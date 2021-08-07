@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import { Route, Switch } from 'react-router-dom';
 // Dynamic import HOC
 import asyncComponent from 'shared/hocs/asyncComponent';
+import frontendUrls from './urlConsts';
 
 const AsyncHomePage = asyncComponent(
   () => import('../../components/Sections/Home/index')
@@ -14,7 +15,11 @@ interface Props {
 const Router: FC<Props> = ({ location }) => (
   <>
     <Switch>
-      <Route key="/home" path="/home" component={AsyncHomePage} />
+      <Route
+        key="/home"
+        path={frontendUrls.urlHome}
+        component={AsyncHomePage}
+      />
     </Switch>
   </>
 );

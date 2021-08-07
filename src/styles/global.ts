@@ -36,6 +36,23 @@ const GlobalStyle = createGlobalStyle<Props>`
     }
   }
 
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: ${({ theme }) => theme?.colors?.green2} ${({ theme }) =>
+  theme?.colors?.black};;
+  }
+  body::-webkit-scrollbar {
+    width: 10px;
+  }
+  body::-webkit-scrollbar-track {
+    background: ${({ theme }) => theme?.colors?.black};;
+  }
+  body::-webkit-scrollbar-thumb {
+    background-color: ${({ theme }) => theme?.colors?.green2};
+    border: 3px solid ${({ theme }) => theme?.colors?.black};;
+    border-radius: 10px;
+  }
+
   #root {
     min-height: 100vh;
     display: grid;
