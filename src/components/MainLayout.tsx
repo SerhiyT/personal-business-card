@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import Loader from './Loader';
@@ -15,6 +16,7 @@ const Layout = ({ children }: any) => {
   const location = useLocation();
   const isHome = location.pathname === '/';
   const [isLoading, setIsLoading] = useState(isHome);
+  const activePathname = location.pathname.split('/')[1].toUpperCase();
 
   return (
     <>
@@ -23,6 +25,7 @@ const Layout = ({ children }: any) => {
           <Loader finishLoading={() => setIsLoading(false)} />
         ) : (
           <StyledContent>
+            <Helmet title={`${activePathname} | Serhii Tsyntsar`} />
             <Menu />
             <Social />
             <div id="content">
