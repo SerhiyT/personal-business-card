@@ -1,10 +1,11 @@
 import React from 'react';
-import { StyledHomeSection } from './style';
+import { StyledAboutSection } from './style';
 
-const Home = () => {
+const About = () => {
   return (
-    <StyledHomeSection id="home">
-      <h2>HOME</h2>
+    <StyledAboutSection id="about">
+      <h2>ABOUT</h2>
+
       <p>
         Contact info: how, what and where? Making sure visitors can easily get
         in touch with you is one of the easiest ways to generate leads. Good
@@ -84,8 +85,8 @@ const Home = () => {
         money with your website. Take the lead on your competitors – just like
         the 387 companies and organisations who went before you.
       </p>
-    </StyledHomeSection>
+    </StyledAboutSection>
   );
 };
 
-export default Home;
+export default About;

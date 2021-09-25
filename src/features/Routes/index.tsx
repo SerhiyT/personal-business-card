@@ -1,11 +1,12 @@
-import React, { FC } from 'react';
+import { SectionLoader } from 'components/SectionLoader';
+import React, { FC, Suspense, lazy } from 'react';
 import { Route, Switch } from 'react-router-dom';
-// Dynamic import HOC
-import asyncComponent from 'shared/hocs/asyncComponent';
 import frontendUrls from './urlConsts';
 
-const AsyncHomePage = asyncComponent(
-  () => import('../../components/Sections/Home/index')
+const HomePage = lazy(() => import('../../components/Sections/Home'));
+const AboutPage = lazy(() => import('../../components/Sections/About'));
+const ExperiencePage = lazy(
+  () => import('../../components/Sections/Experience')
 );
 
 interface Props {
@@ -13,15 +14,19 @@ interface Props {
 }
 
 const Router: FC<Props> = ({ location }) => (
-  <>
+  <Suspense fallback={<SectionLoader />}>
     <Switch>
-      <Route
-        key="/home"
-        path={frontendUrls.urlHome}
-        component={AsyncHomePage}
-      />
+      <Route exact path={frontendUrls.urlHome}>
+        <HomePage />
+      </Route>
+      <Route path={frontendUrls.urlAbout}>
+        <AboutPage />
+      </Route>
+      <Route path={frontendUrls.urlExperience}>
+        <ExperiencePage />
+      </Route>
     </Switch>
-  </>
+  </Suspense>
 );
 
 export default Router;

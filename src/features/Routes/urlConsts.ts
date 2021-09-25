@@ -1,5 +1,5 @@
 const frontendUrls = {
-  urlHome: '/home',
+  urlHome: '/',
   urlAbout: '/about',
   urlExperience: '/experience',
 };
